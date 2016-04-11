@@ -23,8 +23,9 @@ start() {
   if [[ ! -z $pid ]]; then
     echo 'server is already running'
   else
-    $NODE $DIR/app.js 2>&1 &
-    echo `server is running`
+    # $NODE $DIR/app.js 2>&1 &
+    npm start 2>&1 &
+    echo 'server is running'
   fi
 }
 
@@ -32,11 +33,11 @@ start() {
 stop() {
   pid=`get_pid`
   if [[ -z $pid ]]; then
-    echo `server not running`
+    echo 'server not running'
   else
-    echo `server is stopping ...`
+    echo 'server is stopping ...'
     kill -15 $pid
-    echo `server stopped !`
+    echo 'server stopped !'
   fi
 }
 
